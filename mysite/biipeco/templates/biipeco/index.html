@@ -1,0 +1,657 @@
+{% extends 'biipeco/layout.html' %}
+
+{% block content %}
+    <section class="intro" id="intro">
+				<div class="header_container">
+					<div class="intro__wrap">
+						<h1 class="intro__title">{{ intro.title | safe }}</h1>
+						<p class="intro__text text">{{ intro.text | safe }}</p>
+						<div class="intro__buttons">
+							<a href="#" class="btn btn_p">{{ intro.btn_p| safe }}</a>
+							<a href="#" class="btn btn_w">{{ intro.btn_w| safe }}</a>
+						</div>
+
+					</div>
+					<a href="#we" class="intro__arrow icon-down"></a>
+				</div>
+			</section>
+			<section class="we" id="we">
+				<div class="container__we">
+					<div class="we__wrap">
+						<h2 class="we__title title">почему мы</h2>
+						<div class="we__row">
+							<div class="we__column">
+								 <div class="we__text we__text_pic1">
+								 	{{ we.text1 | safe }}
+								 </div>
+							</div>
+							<div class="we__column">
+								 <div class="we__text we__text_pic2">
+								 	{{ we.text2 | safe }}
+								 </div>
+							</div>
+							<div class="we__column">
+								 <div class="we__text we__text_pic3">
+								 	{{ we.text3 | safe }}
+								 </div>
+							</div>
+							<div class="we__column">
+								 <div class="we__text we__text_pic4">
+								 	{{ we.text4 | safe }}
+								 </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="work">
+				<div class="container">
+					<h2 class="work__title title">Как мы работаем</h2>
+					<div class="work__row">
+						<div class="work__column">
+							<div class="work__item">
+								<p class="work__digital">1</p>
+								<p class="work__text text">Приезжаем к вам <br> на предприятие</p>
+							</div>
+						</div>
+						<div class="work__column">
+							<div class="work__item">
+								<p class="work__digital">2</p>
+								<p class="work__text text">Проверям имеющуюся <br>экологическую документацию</p>
+							</div>
+						</div>
+						<div class="work__column">
+							<div class="work__item">
+								<p class="work__digital">3</p>
+								<p class="work__text text">Осматриваем территорию <br> вашего предприятия</p>
+							</div>
+						</div>
+						<div class="work__column">
+							<div class="work__item">
+								<p class="work__digital">4</p>
+								<p class="work__text text">Производим расчет <br> стоимости услуг</p>
+							</div>
+						</div>
+						<div class="work__column">
+							<div class="work__item">
+								<p class="work__digital">5</p>
+								<p class="work__text text">Вырабатываем <br> план действия </p>
+							</div>
+						</div>
+						<div class="work__column">
+							<div class="work__item">
+								<p class="work__digital">6</p>
+								<p class="work__text text">Даём подробную <br> консультацию </p>
+							</div>
+						</div>
+						<div class="work__line work__line_line1"></div>
+						<div class="work__line work__line_line2"></div>
+						<div class="work__line work__line_line3"></div>
+						<!-- <div class="work__line work__line_line4"></div> -->
+						<div class="work__circle work__circle_circle1"></div>
+						<div class="work__circle work__circle_circle2"></div>
+					</div>
+					<h2 class="work__title title">какие услуги мы оказываем</h2>
+				</div>
+				<div class="container container__serv">
+					<div class="work-serv__row">
+						{% for item in service %}
+						<div class="work-serv__column">
+							<div class="work-serv__item">
+								<div class="work-serv__img">
+									<img src="{{ item.img.url }}" alt="service">
+								</div>
+								<div class="work-serv__texts">
+									<p class="work-serv__text">{{ item.text | safe }}</p>
+									<p class="work-serv__price">{{ item.price | safe }}</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+			<section class="docs" id="docs">
+				<div class="container">
+					<div class="docs__wrap">
+						<h2 class="docs__title title">какие документы нужны объектам</h2>
+						<p class="docs__text text">Выберите область и отметьте все волнующие вас пункты, <br> чтобы посмотреть перечень необходимой документации</p>
+						<div class="docs__tabs">
+							<div class="docs__tab">
+							  <button class="docs__tablinks active" onclick="openTab(event, 'farming')">Сельскохозяйственная область большого завода</button>
+							  <button class="docs__tablinks" onclick="openTab(event, 'product')">Производственная область завода</button>
+							  <button class="docs__tablinks" onclick="openTab(event, 'service')">Область «обслуживание»</button>
+							  <button class="docs__tablinks" onclick="openTab(event, 'auto')">Обслуживание автотранспорта</button>
+							  <button class="docs__tablinks" onclick="openTab(event, 'big_product')">Крупные производства</button>
+							  <button class="docs__tablinks" onclick="openTab(event, 'other')">Прочее</button>
+							</div>
+
+							<div id="farming" class="docs__tabcontent" style="display: flex;">
+							  <ol class="docs__menu">
+							  	<li class="docs__point"><button class="docs__link " onclick="openBlock(event, 'animals')">Содержание животных</button>
+							  		<div id="animals" class="docs__block">
+							  			<h3 class="docs__block__title title">1. Содержание животных</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point151"   class="docs__block__check" >
+												<label for="point151" class="docs__block__text text">птичник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point152"   class="docs__block__check" >
+												<label for="point152" class="docs__block__text text">коровник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point153"  class="docs__block__check" >
+												<label for="point153" class="docs__block__text text">свинарник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point154"   class="docs__block__check" >
+												<label for="point154" class="docs__block__text text">разведение пушных зверей</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li   class="docs__point "><button class="docs__link" onclick="openBlock(event, 'ceh')">Убойный цех</button>
+							  		<div id="ceh" class="docs__block">
+							  			<h3 class="docs__block__title title">2.	Убойный цех</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point155"   class="docs__block__check" >
+												<label for="point155" class="docs__block__text text">участок предубойного содержания</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'kremator')">Крематор </button>
+							  		<div id="kremator" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Крематор </h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point156"   class="docs__block__check" >
+												<label for="point156" class="docs__block__text text">для сжигания биологических отходов</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'navoz')">Хранение навоза</button>
+							  		<div id="navoz" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Хранение навоза</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point157"   class="docs__block__check" >
+												<label for="point157" class="docs__block__text text">лагуны для жидкой фазы</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point158"   class="docs__block__check" >
+												<label for="point158" class="docs__block__text text">хранение твердой фракции</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'meat')">Мясопереработка </button>
+							  		<div id="meat" class="docs__block">
+							  			<h3 class="docs__block__title title">4.	Мясопереработка</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point159"   class="docs__block__check" >
+												<label for="point159" class="docs__block__text text">холодильники</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point160"   class="docs__block__check" >
+												<label for="point160" class="docs__block__text text">коптильни</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'milk')">Молочное производство </button></li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'bread')">Хлебопекарное производство </button></li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'seal')">Зернопереработка </button></li>
+							  </ol>
+							</div>
+
+							<div id="product" class="docs__tabcontent">
+							  <ol class="docs__menu">
+							  	<li class="docs__point"><button class="docs__link " onclick="openBlock(event, 'metal')">Металлообработка</button>
+							  		<div id="metal" class="docs__block docs__block_block1 ">
+							  			<h3 class="docs__block__title title">1. Содержание животных</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point1"   class="docs__block__check" >
+												<label for="point1" class="docs__block__text text">птичник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point2"   class="docs__block__check" >
+												<label for="point2" class="docs__block__text text">коровник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point3"  class="docs__block__check" >
+												<label for="point3" class="docs__block__text text">свинарник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point4"   class="docs__block__check" >
+												<label for="point4" class="docs__block__text text">разведение пушных зверей</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li   class="docs__point "><button class="docs__link" onclick="openBlock(event, 'wood')">Деревообработка </button>
+							  		<div id="wood" class="docs__block">
+							  			<h3 class="docs__block__title title">2.	Убойный цех</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point5"   class="docs__block__check" >
+												<label for="point5" class="docs__block__text text">участок предубойного содержания</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'galvanic')">Гальванический цех  </button>
+							  		<div id="galvanic" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Крематор </h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point6"   class="docs__block__check" >
+												<label for="point6" class="docs__block__text text">для сжигания биологических отходов</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'color')">Покрасочные работы </button>
+							  		<div id="color" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Хранение навоза</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point7"   class="docs__block__check" >
+												<label for="point7" class="docs__block__text text">лагуны для жидкой фазы</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point8"   class="docs__block__check" >
+												<label for="point8" class="docs__block__text text">хранение твердой фракции</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'plastic')">Обработка пластмасс  </button>
+							  		<div id="plastic" class="docs__block">
+							  			<h3 class="docs__block__title title">4.	Мясопереработка</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point9"   class="docs__block__check" >
+												<label for="point9" class="docs__block__text text">холодильники</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point10"   class="docs__block__check" >
+												<label for="point10" class="docs__block__text text">коптильни</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'milk')">Сварка и газовая резка  </button></li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'bread')">Хранение и пересыпка сыпучих материалов  </button></li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'seal')">Асфальто-бетонный завод  </button></li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'seal')">Резервуары с нефтепродуктами  </button></li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'seal')">Установки по сжиганию отходов   </button></li>
+							  </ol>
+							</div>
+
+							<div id="service" class="docs__tabcontent">
+							  <ol class="docs__menu">
+							  	<li class="docs__point"><button class="docs__link " onclick="openBlock(event, 'animals')">Содержание животных</button>
+							  		<div id="animals" class="docs__block docs__block_block1 ">
+							  			<h3 class="docs__block__title title">1. Содержание животных</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point11"   class="docs__block__check" >
+												<label for="point11" class="docs__block__text text">птичник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point12"   class="docs__block__check" >
+												<label for="point12" class="docs__block__text text">коровник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point13"  class="docs__block__check" >
+												<label for="point13" class="docs__block__text text">свинарник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point14"   class="docs__block__check" >
+												<label for="point14" class="docs__block__text text">разведение пушных зверей</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li   class="docs__point "><button class="docs__link" onclick="openBlock(event, 'ceh')">Убойный цех</button>
+							  		<div id="ceh" class="docs__block">
+							  			<h3 class="docs__block__title title">2.	Убойный цех</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point15"   class="docs__block__check" >
+												<label for="point15" class="docs__block__text text">участок предубойного содержания</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'kremator')">Крематор </button>
+							  		<div id="kremator" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Крематор </h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point16"   class="docs__block__check" >
+												<label for="point16" class="docs__block__text text">для сжигания биологических отходов</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'navoz')">Хранение навоза</button>
+							  		<div id="navoz" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Хранение навоза</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point17"   class="docs__block__check" >
+												<label for="point17" class="docs__block__text text">лагуны для жидкой фазы</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point18"   class="docs__block__check" >
+												<label for="point18" class="docs__block__text text">хранение твердой фракции</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  </ol>
+							</div>
+							<div id="auto" class="docs__tabcontent">
+							  <ol class="docs__menu">
+							  	<li class="docs__point"><button class="docs__link " onclick="openBlock(event, 'animals')">Содержание животных</button>
+							  		<div id="animals" class="docs__block docs__block_block1 ">
+							  			<h3 class="docs__block__title title">1. Содержание животных</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point19"   class="docs__block__check" >
+												<label for="point19" class="docs__block__text text">птичник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point20"   class="docs__block__check" >
+												<label for="point20" class="docs__block__text text">коровник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point21"  class="docs__block__check" >
+												<label for="point21" class="docs__block__text text">свинарник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point22"   class="docs__block__check" >
+												<label for="point22" class="docs__block__text text">разведение пушных зверей</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li   class="docs__point "><button class="docs__link" onclick="openBlock(event, 'ceh')">Убойный цех</button>
+							  		<div id="ceh" class="docs__block">
+							  			<h3 class="docs__block__title title">2.	Убойный цех</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point23"   class="docs__block__check" >
+												<label for="point23" class="docs__block__text text">участок предубойного содержания</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'kremator')">Крематор </button>
+							  		<div id="kremator" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Крематор </h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point24"   class="docs__block__check" >
+												<label for="point24" class="docs__block__text text">для сжигания биологических отходов</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'navoz')">Хранение навоза</button>
+							  		<div id="navoz" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Хранение навоза</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point25"   class="docs__block__check" >
+												<label for="point25" class="docs__block__text text">лагуны для жидкой фазы</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point26"   class="docs__block__check" >
+												<label for="point26" class="docs__block__text text">хранение твердой фракции</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  </ol>
+							</div>
+							<div id="big_product" class="docs__tabcontent">
+							  <ol class="docs__menu">
+							  	<li class="docs__point"><button class="docs__link " onclick="openBlock(event, 'animals')">Содержание животных</button>
+							  		<div id="animals" class="docs__block docs__block_block1 ">
+							  			<h3 class="docs__block__title title">1. Содержание животных</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point27"   class="docs__block__check" >
+												<label for="point27" class="docs__block__text text">птичник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point28"   class="docs__block__check" >
+												<label for="point28" class="docs__block__text text">коровник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point29"  class="docs__block__check" >
+												<label for="point29" class="docs__block__text text">свинарник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point30"   class="docs__block__check" >
+												<label for="point30" class="docs__block__text text">разведение пушных зверей</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li   class="docs__point "><button class="docs__link" onclick="openBlock(event, 'ceh')">Убойный цех</button>
+							  		<div id="ceh" class="docs__block">
+							  			<h3 class="docs__block__title title">2.	Убойный цех</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point31"   class="docs__block__check" >
+												<label for="point31" class="docs__block__text text">участок предубойного содержания</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'kremator')">Крематор </button>
+							  		<div id="kremator" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Крематор </h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point32"   class="docs__block__check" >
+												<label for="point32" class="docs__block__text text">для сжигания биологических отходов</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'navoz')">Хранение навоза</button>
+							  		<div id="navoz" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Хранение навоза</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point33"   class="docs__block__check" >
+												<label for="point33" class="docs__block__text text">лагуны для жидкой фазы</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point34"   class="docs__block__check" >
+												<label for="point34" class="docs__block__text text">хранение твердой фракции</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  </ol>
+							</div>
+							<div id="other" class="docs__tabcontent">
+							  <ol class="docs__menu">
+							  	<li class="docs__point"><button class="docs__link " onclick="openBlock(event, 'animals')">Содержание животных</button>
+							  		<div id="animals" class="docs__block docs__block_block1 ">
+							  			<h3 class="docs__block__title title">1. Содержание животных</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point35"   class="docs__block__check" >
+												<label for="point35" class="docs__block__text text">птичник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point36"   class="docs__block__check" >
+												<label for="point36" class="docs__block__text text">коровник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point37"  class="docs__block__check" >
+												<label for="point37" class="docs__block__text text">свинарник</label>
+							  				</div>
+							  				<div class="docs__block__item">
+							  					<input type="checkbox" id="point38"   class="docs__block__check" >
+												<label for="point38" class="docs__block__text text">разведение пушных зверей</label>
+							  				</div>
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li   class="docs__point "><button class="docs__link" onclick="openBlock(event, 'ceh')">Убойный цех</button>
+							  		<div id="ceh" class="docs__block">
+							  			<h3 class="docs__block__title title">2.	Убойный цех</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point39"   class="docs__block__check" >
+												<label for="point39" class="docs__block__text text">участок предубойного содержания</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'kremator')">Крематор </button>
+							  		<div id="kremator" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Крематор </h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point40"   class="docs__block__check" >
+												<label for="point40" class="docs__block__text text">для сжигания биологических отходов</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  	<li  class="docs__point"><button class="docs__link" onclick="openBlock(event, 'navoz')">Хранение навоза</button>
+							  		<div id="navoz" class="docs__block">
+							  			<h3 class="docs__block__title title">3.	Хранение навоза</h3>
+							  			<div class="docs__block__list">
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point41"   class="docs__block__check" >
+												<label for="point41" class="docs__block__text text">лагуны для жидкой фазы</label>
+							  				</div>
+							  				<div class="docs__block__item .check">
+							  					<input type="checkbox" id="point42"   class="docs__block__check" >
+												<label for="point42" class="docs__block__text text">хранение твердой фракции</label>
+							  				</div>
+
+							  			</div>
+							  		</div>
+							  	</li>
+							  </ol>
+							</div>
+						</div>
+						<button class="docs__btn btn btn_p">Сформировать перечень</button>
+					</div>
+				</div>
+			</section>
+			<section class="problems">
+				<div class="container">
+					<div class="problems__wrap">
+						<div class="problems__block">
+							<h2 class="problems__title title">{{ problems.text1 | safe }}</h2>
+							<p class="problems__text text">{{ problems.text2 | safe }}</span></p>
+						</div>
+						<div class="problems__img">
+							<img src="{{ problems.img.url }}" alt="statue">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="needs">
+				<div class="container">
+					<div class="needs__wrap">
+						<h2 class="needs__title title">{{ needs.text1 | safe }}</h2>
+						<p class="needs__text text">{{ needs.text2 | safe }}</p>
+						<a href="#" class=" btn btn_b needs__btn">{{ needs.btn_w | safe }}</a>
+					</div>
+				</div>
+			</section>
+			<section class="who_are_we">
+				<div class="container">
+					<div class="who_are_we__wrap">
+						<h2 class="who_are_we__title title">кто мы как специалисты</h2>
+						<p class="who_are_we__text text">Мы команда молодых и опытных специалистов. <br> Занимаемся разработкой и согласованием под ключ проектов <br class="who_are_we__br"> по экологии, а также экологическим сопровождением организаций.<br> Всегда открыты к новым сотрудничествам. <br class="who_are_we__br2"> Будем рады ответить на ваши вопросы.</p>
+						<div class="who_are_we__wrapper">
+							<div class="who_are_we__row">
+								{% for item in person %}
+								<div class="who_are_we__column">
+									<div class="who_are_we__item">
+										<div class="who_are_we__img">
+											<img src="{{ item.img.url }}" alt="photo">
+										</div>
+										<div class="who_are_we__block">
+											<h3 class="who_are_we__name">{{ item.name | safe }}</h3>
+											<p class="who_are_we__spec">Специализация</p>
+											<ul class="who_are_we__list">
+												{% for work in spec %}
+													{% if item.pk == work.person %}
+														<li class="who_are_we__work text">{{ work.name | safe }}</li>
+													{% endif %}
+												{% endfor %}
+											</ul>
+											<ul class="who_are_we__socials">
+												<li class="header_icon"><a href="{{ item.email | safe }}" class="icon-mail"></a></li>
+												<li class="header_icon "><a href="{{ item.whatsapp | safe }}" class="icon-whatsapp"></a></li>
+												<li class="header_icon"><a href="{{ item.telegram | safe }}" class="icon-telegram"></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<section class="talks">
+				<div class="container talks__container">
+					<h2 class="talks__title title">Что о нас говорят наши клиенты</h2>
+					<div class="talks__wrap">
+						<div class="talks__slider">
+							{% for talk in talks %}
+							<div class="talks__img">
+								<img src="{{ talk.img.url }}" alt="testimonial">
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</section>
+    {% include 'biipeco/question.html' %}
+{% endblock %}

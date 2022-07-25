@@ -1,0 +1,58 @@
+{% load static %}
+
+<footer class="footer">
+	<div class='container'>
+		<div class="footer-body">
+			<div class="footer__block">
+				<div class="footer__logo">
+					<img src="{% static 'biipeco/img/logo_footer.png' %}" alt="logo">
+				</div>
+				<div class="footer_icons">
+					<ul>
+						<li class="footer_icon"><a href="mailto:info@biipeco.ru" class="icon-mail"></a></li>
+						<li class="footer_icon"><a href="" class="icon-telegram"></a></li>
+						<li class="footer_icon "><a href="https://wa.me/message/UAMX2A4K6BSRP1" class="icon-whatsapp"></a></li>
+					</ul>
+				</div>
+				<p class="footer__copyright">© 2022, БИиП Экосервис</p>
+				<p class="footer__copyright">Все права защищены</p>
+				<div class="footer__phones_mob">
+					<ul class="menu__list footer__list">
+						<li><a href="tel:+78002007827" class="menu__link link_phone icon-phone"><span>8 (800) 200-78-27</span></a></li>
+						<li><a href="tel:+73452638852" class="menu__link link_phone icon-phone"><span>8 (3452) 63-88-52</span></a></li>
+					</ul>
+					<a href="#" class=" btn footer__btn btn_w">Заказать звонок</a>
+				</div>
+			</div>
+			<div class="footer__block footer__block2">
+				<ul class="footer__menu">
+					<li><a href="{% url 'contacts' %}" class="menu__link footer__menu__link">Контакты </a></li>
+					<li><a href="#" class="menu__link footer__menu__link">Услуги </a>
+					<li><a href="{% url 'air' %}" class="sub_menu__link footer__sub_menu__link">ОХРАНА АТМОСФЕРНОГО ВОЗДУХА</a></li>
+					<li><a href="{% url 'refuse' %}" class="sub_menu__link footer__sub_menu__link">ОБРАЩЕНИЕ С ОТХОДАМИ</a></li>
+					<li><a href="{% url 'eco_report' %}" class="sub_menu__link footer__sub_menu__link">ЭКОЛОГИЧЕСКАЯ ОТЧЕТНОСТЬ</a></li>
+					<li><a href="{% url 'ecology' %}" class="sub_menu__link footer__sub_menu__link">ЭКОЛОГИЧЕСКОЕ СОПРОВОЖДЕНИЕ</a></li>
+					<li><a href="{% url 'water' %}" class="sub_menu__link footer__sub_menu__link">СОПРОВОЖДЕНИЕ ПО ЭКОЛОГИЧЕСКОМУ КОНТРОЛЮ</a></li>
+				</ul>
+			</div>
+			<div class="footer__block">
+				<a href="#" class="btn footer__btn btn_w _footer1">Заказать звонок</a>
+				<ul class="menu__list footer__list">
+					<li><a href="tel:+78002007827" class="menu__link link_phone icon-phone _footer1"><span>8 (800) 200-78-27</span></a></li>
+					<li><a href="tel:+73452638852" class="menu__link link_phone icon-phone _footer1"><span>8 (3452) 63-88-52</span></a></li>
+				</ul>
+				<div class="footer__copyright2">
+					<p class="footer__copyright">© 2022, БИиП Экосервис</p>
+					<p class="footer__copyright">Все права защищены</p>
+				</div>
+			</div>
+			<a href="#intro" class="footer__up icon-arrow_up" id="button__up"></a>
+		</div>
+		<div class="footer__cookey">
+			<p class="footer__text text">
+				Наш сайт использует cookie-файлы. Продолжая пользоваться им, вы соглашаетесь <br> на обработку персональных данных в соответствии с политикой конфиденциальности.
+			</p>
+			<button class="footer__btn btn btn_w footer__btn_close">Понятно</button>
+		</div>
+	</div>
+</footer>

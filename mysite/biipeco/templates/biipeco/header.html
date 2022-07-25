@@ -1,0 +1,121 @@
+{% load static %}
+
+<header class="header">
+	<div class="header_container">
+		<div class="header-body">
+			<div class="header__logo">
+				<a href="{% url 'home' %}" class="header__index"><img src="{% static 'biipeco/img/logo.png' %}" alt="logo"></a>
+				<div class="header_icons">
+					<ul>
+						<li class="header_icon"><a href="mailto:info@biipeco.ru" class="icon-mail"></a></li>
+						<li class="header_icon"><a href="" class="icon-telegram"></a></li>
+						<li class="header_icon "><a href="" class="icon-whatsapp"></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header__burger">
+					<span></span>
+			</div>
+			<nav class="header__menu menu">
+				<div class="header__add">
+
+					<div class="header__lists">
+						<ul class="menu__list">
+							<li><a href="{% url 'contacts' %}" class="menu__link menu__link_phone">Контакты </a></li>
+							<li class="list_first"><a href="#about" class="menu__link icon-arrow_down">Услуги </a>
+								<ul class="sub_menu__list ">
+									<li><a href="{% url 'air' %}" class="sub_menu__link">ОХРАНА АТМОСФЕРНОГО ВОЗДУХА</a></li>
+									<li><a href="{% url 'refuse' %}" class="sub_menu__link">ОБРАЩЕНИЕ С ОТХОДАМИ</a></li>
+									<li><a href="{% url 'eco_report' %}" class="sub_menu__link">ЭКОЛОГИЧЕСКАЯ ОТЧЕТНОСТЬ</a></li>
+									<li><a href="{% url 'ecology' %}" class="sub_menu__link">ЭКОЛОГИЧЕСКОЕ СОПРОВОЖДЕНИЕ</a></li>
+									<li><a href="{% url 'water' %}" class="sub_menu__link">СОПРОВОЖДЕНИЕ ПО ЭКОЛОГИЧЕСКОМУ КОНТРОЛЮ</a></li>
+								</ul>
+							</li>
+							<li><a href="{% url 'contacts' %}" class="menu__link menu__link_phone2">Контакты </a></li>
+
+						</ul>
+						<ul class="menu__list">
+							<li><a href="{% url 'home' %}" class="menu__link _docs">мОЙ ПЕРЕЧЕНЬ ДОКУМЕНТОВ</a></li>
+						</ul>
+					</div>
+					<div class="menu_mobile">
+						<ul class="menu__icons">
+							<li class="header_icon"><a href="" class="icon-mail"></a></li>
+							<li class="header_icon"><a href="" class="icon-telegram"></a></li>
+							<li class="header_icon "><a href="" class="icon-whatsapp"></a></li>
+						</ul>
+						<ul class="menu__list2">
+							<li><a href="tel:+78002007827" class="menu__link link_phone icon-phone"><span>8 (800) 200-78-27</span></a></li>
+							<li><a href="tel:+73452638852" class="menu__link link_phone icon-phone"><span>8 (3452) 63-88-52</span></a></li>
+						</ul>
+
+						<a href="#" class="btn header__btn">Заказать звонок</a>
+
+					</div>
+
+				</div>
+
+
+			</nav>
+
+			<div class="header__phones">
+				<ul class="menu__list2">
+					<li><a href="tel:+78002007827" class="menu__link link_phone icon-phone"><span>8 (800) 200-78-27</span></a></li>
+					<li><a href="tel:+73452638852" class="menu__link link_phone icon-phone"><span>8 (3452) 63-88-52</span></a></li>
+				</ul>
+				<ul class="menu__list_phone  ">
+					<li><a href="" class="menu__link  icon-phone"></a>
+						<ul class="sub_menu__list_phone">
+							<li><a href="tel:+78002007827" class="menu__link link_phone icon-phone"><span>8 (800) 200-78-27</span></a></li>
+							<li><a href="tel:+73452638852" class="menu__link link_phone icon-phone"><span>8 (3452) 63-88-52</span></a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<a href="#" class="btn header__btn">Заказать звонок</a>
+			</div>
+
+		</div>
+	</div>
+</header>
+<div class="my__docs popup">
+	<div class="popup-content">
+		<button class="popup-close"></button>
+		<div class="my__docs__block">
+			<h4 class="my__docs__title title">МОЙ ПЕРЕЧЕНЬ ДОКУМЕНТОВ</h4>
+			<p class="my__docs__text text text_g">Перечень пуст</p>
+			<p class="my__docs__text text">Выберите область и отметьте все волнующие вас пункты, чтобы посмотреть перечень необходимой документации</p>
+			<a href="index.html#docs" class="my__docs__btn btn btn_p">Перейти в раздел</a>
+		</div>
+
+	</div>
+</div>
+<div class="send popup">
+	<div class="popup-content">
+		<button class="popup-close"></button>
+		<div class="my__docs__block">
+			<h4 class="my__docs__title title">ЗАЯВКА ОТПРАВЛЕНА</h4>
+			<p class="my__docs__text text">Спасибо за обращение! <br> Мы свяжемся с вами в ближайшее время.</p>
+			<a href="#docs" class="send__btn btn btn_p popup__close">Закрыть окно</a>
+		</div>
+
+	</div>
+</div>
+<div class="call_back popup">
+	<div class="popup-content">
+		<button class="popup-close"></button>
+		<form action="" class="call_back__form">
+			<h3 class="call_back__title text">ОБРАТНЫЙ ЗВОНОК</h3>
+			<div class="call_back__block">
+				<input type="text" required class="call_back__input" placeholder="Имя" name="name">
+				<input type="text" required class="call_back__input" placeholder="Телефон или электронная почта" name="email">
+				<div class="docs__block__item">
+  					<input type="checkbox" id="point100"   class="docs__block__check" checked>
+					<label for="point100" class="docs__block__text text">
+						<div>Я даю согласие на обработку персональных данных в соответствии <a  class="question__form__policy">с политикой конфиденциальности</a></div></label>
+  				</div>
+				<button class="call_back__btn btn btn_p">Отправить заявку</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+{% load static %}
+
+<section class="question">
+    <div class="container">
+        <div class="question__wrap">
+            <h2 class="question__title title">остались какие-нибудь вопросы?</h2>
+            <form action="" class="question__form">
+                <h3 class="question__form__title text">Оставьте заявку, и мы бесплатно проконсультируем вас</h3>
+                <div class="question__form__block">
+                    <input type="text" required class="question__form__input" placeholder="Имя" name="name">
+                    <input type="text" required class="question__form__input" placeholder="Телефон или электронная почта" name="email">
+                    <div class="question__form__agreement">
+                        <input type="checkbox" id="agreement" required name="agree"  class="question__form__check" checked="checked">
+                        <label for="agreement" class="question__form__text text">
+                            <p>Я даю согласие на обработку персональных данных <br> в соответствии с <a class="question__form__policy">политикой конфиденциальности</a></p>
+
+                        </label>
+                    </div>
+                    <button class="question__form__btn btn btn_b">Отправить заявку</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,125 @@
+{% extends 'biipeco/layout.html' %}
+{% load static %}
+
+
+{% block content %}
+    <section class="contacts">
+					<div class="container">
+						<div class="contacts__wrap">
+							<h2 class="contacts__title title2">контакты</h2>
+							<h3 class="contacts__subtitle">Куда мы выезжаем и сколько это стоит</h3>
+							<div class="contacts__tabs">
+								{% for map in maps %}
+								<div id="{{ map.pk }}" class="contacts__content"
+									 {% if map.pk == 1 %}style="display: flex;"{% endif %}>
+									<div class="contacts__img">
+										<img src="{{ map.img.url }}" alt="map">
+									</div>
+								</div>
+								{% endfor %}
+								<div class="contacts__tab who_are_we__radios">
+									{% for item in maps %}
+										{% if item.pk == 1 %}
+											<div class="who_are_we__radio  contacts__link active" onclick="openCity(event, '{{ item.pk }}')">
+												<input type="radio" class="" name="place" checked>
+												<p class="text">{{ item.name }} &nbsp<span> {{ item.price }}</span></p>
+											</div>
+										{% else %}
+											<div class="who_are_we__radio  contacts__link " onclick="openCity(event, '{{ item.pk }}')">
+												<input type="radio" class="" name="place" >
+												<p class="text">{{ item.name }} &nbsp<span>  {{ item.price }}</span></p>
+											</div>
+										{% endif %}
+									{% endfor %}
+									<button class="air__block__btn btn btn_p contacts__btn">Добавить в перечень</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="license">
+					<div class="container">
+						<div class="license__wrap">
+							<h2 class="license__title title">наши лицензии</h2>
+							<div class="license__block">
+								{% for license in licenses %}
+								<div class="license__item">
+									<div class="license__img">
+										<img src="{{ license.img.url }}" alt="license">
+									</div>
+								</div>
+								{% endfor %}
+<!--								<div class="license__item">-->
+<!--									<div class="license__img">-->
+<!--										<img src="img/contacts/lic2.webp" alt="license">-->
+<!--									</div>-->
+<!--								</div>-->
+
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="call">
+					<div class="container">
+						<h2 class="call__title title">как с нами связаться</h2>
+						<div class="call__row">
+							<div class="call_column">
+								<div class="call__item call__item_item1">
+									<h5 class="call__item__title">Телефоны</h5>
+									<div class="call__item__phones">
+										<a href="tel:88002007827" class="call__item__phone icon-phone">8 (800) 200-78-27 (бесплатный)</a>
+										<a href="tel:83452638852" class="call__item__phone icon-phone">8 (3452) 63-88-52</a>
+									</div>
+
+								</div>
+							</div>
+							<div class="call_column">
+								<div class="call__item call__item_item2">
+									<h5 class="call__item__title">почта</h5>
+									<div class="call__item__mails">
+										<a href="mailto:info@biipeco.ru" class="call__item__mail icon-mail">info@biipeco.ru</a>
+									</div>
+								</div>
+							</div>
+							<div class="call_column">
+								<div class="call__item call__item_item3">
+									<h5 class="call__item__title">мессенджеры</h5>
+									<div class="call__item__messengers">
+										<a href="mailto:info@biipeco.ru" class="call__item__messenger icon-whatsapp"></a>
+										<a href="mailto:info@biipeco.ru" class="call__item__messenger icon-telegram"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="call_form">
+							<div class="call_form__wrap">
+
+								 <form action="" class="call_form__form">
+								 	<h3 class="call_form__title">форма обратной связи</h3>
+								 	<p class="call_form__text text">У вас вопрос, комментарий или предложение? <br> Напишите нам сообщение, и мы ответим при первой же возможности.</p>
+								 	<div class="call_back__block">
+								 		<div class="call_form__inputs">
+								 			<div class="">
+								 				<input type="text" required class="call_back__input" placeholder="Имя" name="name">
+								 			</div>
+								 			<div class="">
+								 				<input type="text" required class="call_back__input" placeholder="Телефон или электронная почта" name="email">
+								 			</div>
+
+								 		</div>
+										<textarea  class="call_form__textarea">Сообщение</textarea>
+										<div class="docs__block__item">
+						  					<input type="checkbox" id="point100"   class="docs__block__check" checked>
+											<label for="point100" class="docs__block__text text">
+												<div>Я даю согласие на обработку персональных данных в соответствии <a  class="question__form__policy">с политикой конфиденциальности</a></div></label>
+						  				</div>
+										<button class="call_form__btn btn btn_p">Отправить заявку</button>
+									</div>
+								 </form>
+							</div>
+						</div>
+					</div>
+
+				</section>
+
+{% endblock %}
