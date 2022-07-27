@@ -22,7 +22,9 @@ a:focus, a:active {
 aside, nav, footer, header, section {
   display: block;
 }
-
+#nav-sidebar {
+    flex: 0 0 20%!important;
+ }
 html, body {
   height: 100%;
   margin: 0;

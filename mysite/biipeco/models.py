@@ -1,5 +1,27 @@
 from django.db import models
 
+class Svc(models.Model):
+    title = models.CharField('Наименование услуги', max_length=130)
+    price = models.PositiveIntegerField('Стоимость')
+    img = models.FileField(upload_to='img/main/%Y/%m/%d/')
+    point = models.PositiveIntegerField('Пункт в описании (от 1 до 6)')
+    desc = models.CharField('Описание сервиса', max_length=150)
+    way = models.ForeignKey('Way', on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
+
+class Way(models.Model):
+    title = models.CharField('Наименование направления', max_length=130)
+
+    class Meta:
+        verbose_name = 'Услуга в отчетных документации'
+        verbose_name_plural = 'Услуги отчетных документации'
+
 class Intro(models.Model):
     title = models.CharField('Основная надпись', max_length=100)
     text = models.CharField('Дополнительная нажпись', max_length=140)
@@ -11,7 +33,7 @@ class Intro(models.Model):
 
     class Meta:
         verbose_name = 'Первая секция'
-        verbose_name_plural = 'Первая секция'
+        verbose_name_plural = 'Первая секция (главная страница)'
 
 class We(models.Model):
     text1 = models.CharField('Первая надпись', max_length=30)
@@ -24,7 +46,7 @@ class We(models.Model):
 
     class Meta:
         verbose_name = 'Почему мы'
-        verbose_name_plural = 'Почему мы'
+        verbose_name_plural = 'Почему мы (главная страница)'
 
 class Service(models.Model):
     text = models.CharField('Надпись', max_length=30)
@@ -36,7 +58,7 @@ class Service(models.Model):
 
     class Meta:
         verbose_name = 'Сервис'
-        verbose_name_plural = 'Сервис'
+        verbose_name_plural = 'Сервис (главная страница)'
 
 class Problems(models.Model):
     text1 = models.CharField('Первая надпись', max_length=40)
@@ -49,7 +71,7 @@ class Problems(models.Model):
 
     class Meta:
         verbose_name = 'Проблемы'
-        verbose_name_plural = 'Проблемы'
+        verbose_name_plural = 'Проблемы (главная страница)'
 
 class Needs(models.Model):
     text1 = models.CharField('Первая надпись', max_length=40)
@@ -62,7 +84,7 @@ class Needs(models.Model):
 
     class Meta:
         verbose_name = 'Не уверены?'
-        verbose_name_plural = 'Не уверены?'
+        verbose_name_plural = 'Не уверены? (главная страница)'
 
 class Person(models.Model):
     name = models.CharField('Имя', max_length=15)
@@ -76,7 +98,7 @@ class Person(models.Model):
 
     class Meta:
         verbose_name = 'Сотрудник'
-        verbose_name_plural = 'Сотрудники'
+        verbose_name_plural = 'Сотрудники (главная страница)'
 
 class Specializations(models.Model):
     person = models.DecimalField(max_digits=1, decimal_places=0)
@@ -87,7 +109,7 @@ class Specializations(models.Model):
 
     class Meta:
         verbose_name = 'Специализация'
-        verbose_name_plural = 'Специализация'
+        verbose_name_plural = 'Специализация (главная страница)'
 
 class Talks(models.Model):
     img = models.FileField(upload_to='img/main/%Y/%m/%d/')
